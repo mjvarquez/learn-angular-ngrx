@@ -1,0 +1,39 @@
+<form [formGroup]="articleForm" (ngSubmit)="addArticle()">
+  <h1 mat-dialog-title>{{ header }}</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Ex. My Article" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Image Link</mat-label>
+      <input
+        matInput
+        formControlName="image_link"
+        placeholder="Ex. My article is all about animals"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        placeholder="Ex. This article talks about..."
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <textarea
+        matInput
+        formControlName="price"
+        placeholder="Ex. This article talks about..."
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" [disabled]="!articleForm.valid">
+      {{ actionBtn }}
+    </button>
+  </div>
+</form>
